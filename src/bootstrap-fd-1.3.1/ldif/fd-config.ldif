@@ -69,7 +69,7 @@ ou: tokens
 dn: cn=config,ou=fusiondirectory,ou=fd,{{ LDAP_BASE_DN }}
 changeType: add
 fdTheme: default
-fdTimezone: `cat /etc/timezone`
+fdTimezone: Europe/Copenhagen
 fdSchemaCheck: TRUE
 fdPasswordDefaultHash: ssha
 fdListSummary: TRUE
