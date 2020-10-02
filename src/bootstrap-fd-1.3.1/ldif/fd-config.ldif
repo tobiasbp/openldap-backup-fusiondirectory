@@ -9,7 +9,8 @@ objectClass: dcObject
 objectClass: organization
 objectClass: gosaDepartment
 objectClass: gosaAcl
-gosaAclEntry: 0:subtree:DN-ACLROLE:DN-USER
+gosaAclEntry: 0:subtree:Y249bWFuYWdlcixvdT1hY2xyb2xlcyxvdT1mZCxkYz1rb250cmFwdW5rdCxkYz1jb20=:dWlkPWZkLWFkbWluLG91PXBlb3BsZSxvdT1mZCxkYz1rb250cmFwdW5rdCxkYz1jb20=
+gosaAclEntry: 1:subtree:DN-ACLROLE:DN-USER
 
 dn: ou=people,ou=fd,{{ LDAP_BASE_DN }}
 changeType: add
