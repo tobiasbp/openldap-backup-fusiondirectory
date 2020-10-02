@@ -1,0 +1,19 @@
+dn: {{ LDAP_BASE_DN }}
+changeType: add
+o: ${ORGANIZATION}
+dc: ${ROOT}
+ou: ${ROOT}
+description: ${ROOT}
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+objectClass: gosaDepartment
+objectClass: gosaAcl
+gosaAclEntry: 0:subtree:${CN_ADMIN_BS64}:${UID_FD_ADMIN_BS64}
+dn: cn=admin,${BASE_DN}
+changeType: add
+objectClass: simpleSecurityObject
+objectClass: organizationalRole
+cn: admin
+description: LDAP administrator
+userPassword: ${ADMIN_PASS_ENCRYPTED}
