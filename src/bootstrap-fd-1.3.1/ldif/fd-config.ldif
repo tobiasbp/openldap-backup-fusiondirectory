@@ -9,13 +9,20 @@ objectClass: dcObject
 objectClass: organization
 objectClass: gosaDepartment
 objectClass: gosaAcl
-gosaAclEntry: 0:subtree:Y249bWFuYWdlcixvdT1hY2xyb2xlcyxvdT1mZCxkYz1rb250cmFwdW5rdCxkYz1jb20=:dWlkPWZkLWFkbWluLG91PXBlb3BsZSxvdT1mZCxkYz1rb250cmFwdW5rdCxkYz1jb20=
+gosaAclEntry: 0:subtree:Y249YWRtaW4sb3U9YWNscm9sZXMsb3U9ZmQsZGM9a29udHJhcHVua3
+ QsZGM9Y29t:dWlkPWZkLWFkbWluLG91PXBlb3BsZSxvdT1mZCxkYz1rb250cmFwdW5rdCxkYz1jb2
+ 0=
 gosaAclEntry: 1:subtree:DN-ACLROLE:DN-USER
 
 dn: ou=people,ou=fd,{{ LDAP_BASE_DN }}
 changeType: add
 objectClass: organizationalUnit
 ou: people
+
+dn: ou=groups,ou=fd,{{ LDAP_BASE_DN }}
+changeType: add
+objectClass: organizationalUnit
+ou: groups
 
 dn: uid=fd-admin,ou=people,ou=fd,{{ LDAP_BASE_DN }}
 changeType: add
@@ -69,7 +76,8 @@ ou: tokens
 
 dn: cn=config,ou=fusiondirectory,ou=fd,{{ LDAP_BASE_DN }}
 changeType: add
-fdTheme: default
+cn: config
+fdTheme: breezy
 fdTimezone: Europe/Copenhagen
 fdSchemaCheck: TRUE
 fdPasswordDefaultHash: ssha
@@ -81,7 +89,7 @@ fdLoginAttribute: uid
 fdWarnSSL: TRUE
 fdSessionLifeTime: 1800
 fdEnableSnapshots: TRUE
-fdSnapshotBase: ou=snapshots,${BASE_DN}
+fdSnapshotBase: ou=snapshots,ou=fd,{{ LDAP_BASE_DN }}
 fdSslKeyPath: /etc/ssl/private/fd.key
 fdSslCertPath: /etc/ssl/certs/fd.cert
 fdSslCaCertPath: /etc/ssl/certs/ca.cert
@@ -100,8 +108,8 @@ fdGroupRDN: ou=groups
 fdAclRoleRDN: ou=aclroles
 fdIdAllocationMethod: traditional
 fdDebugLevel: 0
-fdShells: /bin/ash
 fdShells: /bin/bash
+fdShells: /bin/ash
 fdShells: /bin/csh
 fdShells: /bin/sh
 fdShells: /bin/dash
@@ -118,7 +126,6 @@ fdDisplayErrors: FALSE
 fdLdapStats: FALSE
 fdDisplayHookOutput: FALSE
 fdAclTabOnObjects: FALSE
-cn: config
 fdOGroupRDN: ou=groups
 fdForceSaslPasswordAsk: FALSE
 fdDashboardNumberOfDigit: 3
@@ -128,6 +135,19 @@ objectClass: fusionDirectoryConf
 objectClass: fusionDirectoryPluginsConf
 objectClass: fdDashboardPluginConf
 objectClass: fdPasswordRecoveryConf
+fdPasswordRecoveryActivated: FALSE
+fdPasswordRecoveryEmail: to.be@chang.ed
+fdPasswordRecoveryValidity: 10
+fdPasswordRecoverySalt: SomethingSecretAndVeryLong
+fdPasswordRecoveryUseAlternate: FALSE
+fdPasswordRecoveryMailSubject: [FusionDirectory] Password recovery link
+fdPasswordRecoveryMailBody:: SGVsbG8sCgpIZXJlIGFyZSB5b3VyIGluZm9ybWF0aW9ucyA6I
+ AogLSBMb2dpbiA6ICVzCiAtIExpbmsgOiAlcwoKVGhpcyBsaW5rIGlzIG9ubHkgdmFsaWQgZm9yID
+ EwIG1pbnV0ZXMu
+fdPasswordRecoveryMail2Subject: [FusionDirectory] Password recovery successful
+fdPasswordRecoveryMail2Body:: SGVsbG8sCgpZb3VyIHBhc3N3b3JkIGhhcyBiZWVuIGNoYW5n
+ ZWQuCllvdXIgbG9naW4gaXMgc3RpbGwgJXMu
+
 
 dn: ou=locks,ou=fusiondirectory,ou=fd,{{ LDAP_BASE_DN }}
 changeType: add
