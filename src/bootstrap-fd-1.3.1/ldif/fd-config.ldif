@@ -119,7 +119,6 @@ fdShells: /bin/zsh
 fdShells: /sbin/nologin
 fdShells: /bin/false
 fdForcePasswordDefaultHash: TRUE
-fdHandleExpiredAccounts: FALSE
 fdForceSSL: FALSE
 fdHttpAuthActivated: FALSE
 fdCasActivated: FALSE
