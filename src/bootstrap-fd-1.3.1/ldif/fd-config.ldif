@@ -80,7 +80,9 @@ cn: config
 fdTheme: breezy
 fdTimezone: Europe/Copenhagen
 fdSchemaCheck: TRUE
-fdPasswordDefaultHash: ssha
+fdPasswordDefaultHash: crypt/sha-512
+fdPasswordMinLength: 16
+fdHandleExpiredAccounts: TRUE
 fdListSummary: TRUE
 fdModificationDetectionAttribute: entryCSN
 fdLogging: TRUE
@@ -116,7 +118,7 @@ fdShells: /bin/dash
 fdShells: /bin/zsh
 fdShells: /sbin/nologin
 fdShells: /bin/false
-fdForcePasswordDefaultHash: FALSE
+fdForcePasswordDefaultHash: TRUE
 fdHandleExpiredAccounts: FALSE
 fdForceSSL: FALSE
 fdHttpAuthActivated: FALSE
