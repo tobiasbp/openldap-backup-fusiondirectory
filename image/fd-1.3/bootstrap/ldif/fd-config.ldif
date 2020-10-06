@@ -33,7 +33,7 @@ cn: System Administrator
 sn: Administrator
 givenName: System
 uid: fd-admin
-userPassword:: e1NTSEF9Vmd3eDdPeUgxWkZvRStwMWwvVWZVU3Y0WXUxa1VtcElSRkphY0E9PQ==
+userPassword: {{ FD_ADMIN_PASSWORD }}
 
 dn: ou=aclroles,ou=fd,{{ LDAP_BASE_DN }}
 changeType: add
